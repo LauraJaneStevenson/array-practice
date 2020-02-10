@@ -1,21 +1,22 @@
-# for every bar, 
-# if the bar we are compairing it to is lower, multiply the heigh 
-# of the lower bar by the distance away it is from the current bar 
-# if bar we are compating it to is higher, multiple the height of
-# current bar by distance from lower
-# store in variable 
-# if variable is greater than existing var replace it
-
-# return existing var 
-
+ 
 def most_water(lst):
+	"""Given n non-negative integers a1, a2, ..., an , w
+	here each represents a point at coordinate (i, ai). n vertical 
+	lines are drawn such that the two endpoints of line i is 
+	at (i, ai) and (i, 0). Find two lines, which together with 
+	x-axis forms a container, such that the container 
+	contains the most water.
+
+	Note: You may not slant the container and n is at least 2."""
 
 	most = 0
 
+	# nested loop to compair each bar to all other bars
 	for i in range(len(lst)):
 
 		for j in range(i + 1,len(lst)):
 
+			# find which bar is lower
 			if lst[i] > lst[j]:
 
 				lowest = lst[j]
@@ -24,13 +25,13 @@ def most_water(lst):
 
 				lowest = lst[i]
 
-			# if bars we are compairing are same height
 			else:
 
 				lowest = lst[i]
 
 			distance = j - i
 
+			# find amount of water
 			if most < (lowest * distance):
 
 				most = (lowest * distance)
